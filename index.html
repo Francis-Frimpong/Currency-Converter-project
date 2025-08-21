@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>GitHub Profile Viewer</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <section class="section">
+      <div class="container">
+        <div class="header">
+          <h1 class="title">🐙 GitHub Profile</h1>
+          <div class="sub">GitHub API + Axios</div>
+        </div>
+
+        <form id="ghForm" class="row cols-2">
+          <input id="ghUser" placeholder="GitHub username (e.g. octocat)" />
+          <button class="btn" id="btnGh">Search</button>
+        </form>
+
+        <div class="grid" style="margin-top: 1rem">
+          <div class="card">
+            <div class="kv">
+              <img
+                id="ghAvatar"
+                alt=""
+                style="
+                  width: 96px;
+                  height: 96px;
+                  object-fit: cover;
+                  border-radius: 50%;
+                "
+              />
+            </div>
+            <h2 id="ghName" class="title" style="font-size: 1.25rem"></h2>
+            <div id="ghBio" class="footer-note"></div>
+            <div class="flex" style="margin-top: 0.5rem">
+              <div class="badge">Repos: <span id="ghReposCount">0</span></div>
+              <div class="badge">
+                Followers: <span id="ghFollowers">0</span>
+              </div>
+              <div class="badge">
+                Following: <span id="ghFollowing">0</span>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <h3 class="title" style="font-size: 1.1rem">Repositories</h3>
+            <ul id="ghRepos" class="reset"></ul>
+          </div>
+        </div>
+
+        <div id="ghError" class="footer-note"></div>
+      </div>
+    </section>
+  </body>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="app.js"></script>
+</html>
