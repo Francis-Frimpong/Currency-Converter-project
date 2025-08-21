@@ -13,6 +13,7 @@ class GitHubAPI {
 
   displayData() {
     this.getData().then((userProfile) => {
+      document.getElementById("ghError").innerHTML = "";
       document.getElementById("ghAvatar").src = userProfile.data.avatar_url;
       document.getElementById("ghName").textContent = userProfile.data.login;
       document.getElementById("ghBio").textContent = userProfile.data.bio;
@@ -58,6 +59,9 @@ const username = document.getElementById("ghUser");
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
+  if (username.value === "") {
+    document.getElementById("ghError").textContent = "Please enter username!";
+  }
   const userProfile = new GitHubAPI(username);
   const userRepo = new GitHubRepo(repoContainer, username);
   userRepo.displayRepoData();
